@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  const handleCount = (e) => {
+    if (e.target.id === "incr") {
+      setCount(count + 1);
+    } else if (e.target.id === "decr") {
+      setCount(count - 1);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <h1>
+          Le compteur est à : <br />
+          {count}
+        </h1>
+        <br />
+        <div className='buttons'>
+          <button
+            id='incr'
+            onClick={(e) => {
+              handleCount(e);
+            }}>
+            + Increment
+          </button>
+          <button
+            id='decr'
+            onClick={(e) => {
+              handleCount(e);
+            }}>
+            - Decrement
+          </button>
+        </div>
       </header>
     </div>
   );
-}
+};
 
 export default App;
