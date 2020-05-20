@@ -15,6 +15,14 @@ const App = () => {
   return (
     <div className='App'>
       <header className='App-header'>
+        <label htmlFor='setCounter'>Définir la valeur de départ : </label>
+        <input
+          type='number'
+          id='setCounter'
+          onChange={(e) => {
+            setCount(parseInt(e.target.value));
+          }}
+        />
         <h1>
           Le compteur est à : <br />
           {count}
